@@ -62,106 +62,110 @@ class Aplicacion:
         self.mostrar_login()
 
     def configurar_login(self):
-        tk.Label(self.marco_login, text="Usuario", bg='#0A7DAF', fg='white').grid(row=0, column=0, padx=5, pady=5)
-        self.ingresar_usuario = tk.Entry(self.marco_login)
-        self.ingresar_usuario.grid(row=0, column=1, padx=5, pady=5)
+        """Configura los widgets en el marco de inicio de sesión."""
+        font_config = tkfont.Font(size=18, weight='bold') 
+        tk.Label(self.marco_login, text="Usuario", bg='#0A7DAF', fg='white', font=font_config).grid(row=0, column=1, padx=5, pady=5)
+        self.ingresar_usuario = tk.Entry(self.marco_login, width=35)
+        self.ingresar_usuario.grid(row=1, column=1, padx=5, pady=5)
 
-        tk.Label(self.marco_login, text="Contraseña", bg='#0A7DAF', fg='white').grid(row=1, column=0, padx=5, pady=5)
-        self.ingresar_contraseña = tk.Entry(self.marco_login, show='*')
-        self.ingresar_contraseña.grid(row=1, column=1, padx=5, pady=5)
+        tk.Label(self.marco_login, text="Contraseña", bg='#0A7DAF', fg='white', font=font_config).grid(row=2, column=1, padx=5, pady=5)
+        self.ingresar_contraseña = tk.Entry(self.marco_login, show='*', width=35)
+        self.ingresar_contraseña.grid(row=3, column=1, padx=5, pady=5)
 
-        tk.Button(self.marco_login, text="Iniciar Sesión", command=self.login_usuario, bg='#D8A700').grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
-        tk.Button(self.marco_login, text="Registrar", command=self.mostrar_registro, bg='#D8A700').grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Button(self.marco_login, text="Iniciar Sesión", command=self.login_usuario, bg='#D8A700').grid(row=4, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Button(self.marco_login, text="Registrar", command=self.mostrar_registro, bg='#D8A700').grid(row=5, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
 
     def configurar_registro(self):
-        tk.Label(self.marco_registro, text="Nuevo Usuario", bg='#0A7DAF', fg='white').grid(row=0, column=0, padx=5, pady=5)
-        self.nuevo_usuario = tk.Entry(self.marco_registro)
-        self.nuevo_usuario.grid(row=0, column=1, padx=5, pady=5)
+        """Configura los widgets en el marco de registro."""
+        font_config = tkfont.Font(size=18, weight='bold') 
 
-        tk.Label(self.marco_registro, text="Nueva Contraseña", bg='#0A7DAF', fg='white').grid(row=1, column=0, padx=5, pady=5)
-        self.nueva_contraseña = tk.Entry(self.marco_registro, show='*')
-        self.nueva_contraseña.grid(row=1, column=1, padx=5, pady=5)
+        tk.Label(self.marco_registro, text="Nuevo Usuario", bg='#0A7DAF', fg='white', font=font_config).grid(row=1, column=0, padx=5, pady=5)
+        self.nuevo_usuario = tk.Entry(self.marco_registro, width=35)
+        self.nuevo_usuario.grid(row=2, column=0, padx=5, pady=5)
 
-        tk.Button(self.marco_registro, text="Guardar", command=self.registrar_usuario, bg='#D8A700').grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
-        tk.Button(self.marco_registro, text="Volver", command=self.mostrar_login, bg='#D8A700').grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Label(self.marco_registro, text="Nueva Contraseña", bg='#0A7DAF', fg='white', font=font_config).grid(row=3, column=0, padx=5, pady=5)
+        self.nueva_contraseña = tk.Entry(self.marco_registro, show='*', width=35)
+        self.nueva_contraseña.grid(row=4, column=0, padx=5, pady=5)
+
+        tk.Button(self.marco_registro, text="Guardar", command=self.registrar_usuario, bg='#D8A700').grid(row=5, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Button(self.marco_registro, text="Volver", command=self.mostrar_login, bg='#D8A700').grid(row=6, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
 
     def configurar_preguntas(self):
-        tk.Label(self.marco_preguntas, text="Pregunta", bg='#0A7DAF', fg='white').grid(row=0, column=0, padx=5, pady=5)
-        self.ingresar_pregunta = tk.Entry(self.marco_preguntas)
-        self.ingresar_pregunta.grid(row=0, column=1, padx=5, pady=5)
+        """Configura los widgets en el marco para agregar preguntas."""
+        font_config = tkfont.Font(size=18, weight='bold') 
+        tk.Label(self.marco_preguntas, text="Pregunta", bg='#0A7DAF', fg='white', font=font_config).grid(row=0, column=0, padx=5, pady=5)
+        self.ingresar_pregunta = tk.Entry(self.marco_preguntas, width=50)
+        self.ingresar_pregunta.grid(row=1, column=0, padx=5, pady=5)
 
-        tk.Label(self.marco_preguntas, text="Respuesta Correcta", bg='#0A7DAF', fg='white').grid(row=1, column=0, padx=5, pady=5)
-        self.ingresar_correcta = tk.Entry(self.marco_preguntas)
-        self.ingresar_correcta.grid(row=1, column=1, padx=5, pady=5)
+        tk.Label(self.marco_preguntas, text="Respuesta Correcta", bg='#0A7DAF', fg='white', font=font_config).grid(row=2, column=0, padx=5, pady=5)
+        self.ingresar_correcta = tk.Entry(self.marco_preguntas, width=50)
+        self.ingresar_correcta.grid(row=3, column=0, padx=5, pady=5)
 
-        tk.Label(self.marco_preguntas, text="Respuesta Incorrecta 1", bg='#0A7DAF', fg='white').grid(row=2, column=0, padx=5, pady=5)
-        self.ingresar_incorrecta1 = tk.Entry(self.marco_preguntas)
-        self.ingresar_incorrecta1.grid(row=2, column=1, padx=5, pady=5)
+        tk.Label(self.marco_preguntas, text="Respuesta Incorrecta 1", bg='#0A7DAF', fg='white', font=font_config).grid(row=4, column=0, padx=5, pady=5)
+        self.ingresar_incorrecta1 = tk.Entry(self.marco_preguntas, width=50)
+        self.ingresar_incorrecta1.grid(row=5, column=0, padx=5, pady=5)
 
-        tk.Label(self.marco_preguntas, text="Respuesta Incorrecta 2", bg='#0A7DAF', fg='white').grid(row=3, column=0, padx=5, pady=5)
-        self.ingresar_incorrecta2 = tk.Entry(self.marco_preguntas)
-        self.ingresar_incorrecta2.grid(row=3, column=1, padx=5, pady=5)
+        tk.Label(self.marco_preguntas, text="Respuesta Incorrecta 2", bg='#0A7DAF', fg='white', font=font_config).grid(row=6, column=0, padx=5, pady=5)
+        self.ingresar_incorrecta2 = tk.Entry(self.marco_preguntas, width=50)
+        self.ingresar_incorrecta2.grid(row=7, column=0, padx=5, pady=5)
 
-        tk.Button(self.marco_preguntas, text="Añadir Pregunta", command=self.agregar_preguntas, bg='#D8A700').grid(row=4, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Button(self.marco_preguntas, text="Añadir Pregunta", command=self.agregar_preguntas, bg='#D8A700').grid(row=8, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
 
         # Botón Empezar el Juego en marco_preguntas
-        tk.Button(self.marco_preguntas, text="Empezar el Juego", command=self.mostrar_juego, bg='#D8A700').grid(row=5, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Button(self.marco_preguntas, text="Empezar el Juego", command=self.mostrar_juego, bg='#D8A700').grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
 
         # Botón Regresar en marco_preguntas, debajo del botón Empezar el Juego
-        tk.Button(self.marco_preguntas, text="Regresar", command=self.mostrar_login, bg='#D8A700').grid(row=6, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
+        tk.Button(self.marco_preguntas, text="Regresar", command=self.mostrar_login, bg='#D8A700').grid(row=10, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
 
     def configurar_juego(self):
-        self.label_preguntas = tk.Label(self.marco_juego, text="", bg='#0A7DAF', fg='white')
-        self.label_preguntas.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
-
+        font_config = tkfont.Font(size=18, weight='bold') 
+        self.label_preguntas = tk.Label(self.marco_juego, text="", bg='#0A7DAF', fg='white', wraplength=400, font=font_config)  # Ajusta wraplength para definir el ancho máximo del texto
+        self.label_preguntas.pack(pady=5, padx=5, fill='x')  # Usa pack para que el texto se ajuste automáticamente
         self.button_option1 = tk.Button(self.marco_juego, text="", bg='#D8A700', anchor='w')
-        self.button_option1.grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
-
+        self.button_option1.pack(fill='x', pady=5, padx=5)  # Usa pack para que el botón se expanda horizontalmente
         self.button_option2 = tk.Button(self.marco_juego, text="", bg='#D8A700', anchor='w')
-        self.button_option2.grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
-
+        self.button_option2.pack(fill='x', pady=5, padx=5)  # Usa pack para que el botón se expanda horizontalmente
         self.button_option3 = tk.Button(self.marco_juego, text="", bg='#D8A700', anchor='w')
-        self.button_option3.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky='ew')
-
+        self.button_option3.pack(fill='x', pady=5, padx=5)  # Usa pack para que el botón se expanda horizontalmente
         self.contador_correcto = tk.IntVar()
         self.contador_incorrecto = tk.IntVar()
-
-        # Tamaño de letra aumentado y configuración de colores
         font_config = tkfont.Font(size=14, weight='bold')
-
         self.label_correct = tk.Label(self.marco_juego, text="Correctas: 0", fg="white", bg='#2D9231', font=font_config)
-        self.label_correct.grid(row=4, column=0, padx=5, pady=5, sticky='w')
-
+        self.label_correct.pack(side='left', padx=5, pady=5)
         self.label_incorrect = tk.Label(self.marco_juego, text="Incorrectas: 0", fg="white", bg='#D8232A', font=font_config)
-        self.label_incorrect.grid(row=4, column=1, padx=5, pady=5, sticky='e')
-
-        # Botón Regresar en marco_juego
-        tk.Button(self.marco_juego, text="Regresar", command=self.mostrar_preguntas, bg='#D8A700').grid(row=5, column=1, padx=5, pady=5, sticky='se')
+        self.label_incorrect.pack(side='right', padx=5, pady=5)
+        tk.Button(self.marco_juego, text="Regresar", command=self.mostrar_preguntas, bg='#D8A700').pack(side='bottom', pady=5, padx=5)
 
     def mostrar_login(self):
+        """Muestra el marco de inicio de sesión."""
         self.ocultar_todos_marcos()
         self.marco_login.place(relx=0.5, rely=0.5, anchor='center')
 
     def mostrar_registro(self):
+        """Muestra el marco de registro de usuario."""
         self.ocultar_todos_marcos()
         self.marco_registro.place(relx=0.5, rely=0.5, anchor='center')
 
     def mostrar_preguntas(self):
+        """Muestra el marco para agregar preguntas."""
         self.ocultar_todos_marcos()
         self.marco_preguntas.place(relx=0.5, rely=0.5, anchor='center')
 
     def mostrar_juego(self):
+        """Muestra el marco del juego y comienza el juego."""
         self.ocultar_todos_marcos()
         self.marco_juego.place(relx=0.5, rely=0.5, anchor='center')
         self.iniciar_preguntas()
 
     def ocultar_todos_marcos(self):
+        """Oculta todos los marcos."""
         self.marco_login.place_forget()
         self.marco_registro.place_forget()
         self.marco_preguntas.place_forget()
         self.marco_juego.place_forget()
 
     def registrar_usuario(self):
+        """Registra un nuevo usuario en la base de datos."""
         usuario = self.nuevo_usuario.get()
         contraseña = self.nueva_contraseña.get()
 
@@ -178,6 +182,7 @@ class Aplicacion:
             messagebox.showerror("Error", "Todos los campos son obligatorios.")
 
     def login_usuario(self):
+        """Inicia sesión del usuario y muestra el marco de preguntas si el login es exitoso."""
         usuario = self.ingresar_usuario.get()
         contraseña = self.ingresar_contraseña.get()
 
@@ -192,6 +197,7 @@ class Aplicacion:
             messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
 
     def agregar_preguntas(self):
+        """Añade una nueva pregunta a la base de datos."""
         pregunta = self.ingresar_pregunta.get()
         correcta = self.ingresar_correcta.get()
         incorrecta1 = self.ingresar_incorrecta1.get()
@@ -210,11 +216,13 @@ class Aplicacion:
             messagebox.showerror("Error", "Todos los campos son obligatorios.")
 
     def iniciar_preguntas(self):
+        """Inicia el proceso del juego mostrando preguntas aleatorias."""
         cursor.execute("SELECT * FROM preguntas WHERE usuario_id = ?", (self.usuario_id,))
         preguntass = cursor.fetchall()
 
         if not preguntass:
             messagebox.showerror("Error", "No hay preguntas en el banco de datos.")
+            
             return
 
         self.pregunta_actual = random.choice(preguntass)
@@ -227,6 +235,7 @@ class Aplicacion:
         self.button_option3.config(text=options[2], command=lambda: self.check_pregunta(self.pregunta_actual[2], options[2]))
 
     def check_pregunta(self, pregunta_correcta, pregunta_seleccionada):
+        """Verifica la respuesta seleccionada y actualiza los contadores de respuestas correctas e incorrectas."""
         if pregunta_correcta == pregunta_seleccionada:
             self.contador_correcto.set(self.contador_correcto.get() + 1)
             self.label_correct.config(text=f"Correctas: {self.contador_correcto.get()}")
